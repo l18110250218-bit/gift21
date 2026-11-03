@@ -393,11 +393,41 @@ body.rainbow #stage{filter:hue-rotate(135deg) saturate(1.45) contrast(1.05);tran
     <p class="star-hint">点一下夜空，可以给自己点一颗星。</p>
     <p class="star-count" id="starCount"></p>
     <div class="row">
-      <button class="btn" id="finaleBtn" type="button">看最后 →</button>
-      <button class="btn ghost" id="backCakeBtn" type="button">回蛋糕</button>
+      <button class="btn" id="letterBtn" type="button">一封信 →</button>
+      <button class="btn ghost" id="finaleBtn" type="button">看最后 →</button>
+      <button class="btn sm ghost" id="backCakeBtn" type="button">回蛋糕</button>
     </div>
   </div>
 </div>
+
+<!-- ============ 信 ============ -->
+<section class="layer sheet" id="layerLetter" aria-label="一封信">
+  <div class="sheet-card">
+    <div class="sheet-head">
+      <p class="kicker">02 — 一封信</p>
+      <h2>给你的信</h2>
+      <div class="letter-rule" aria-hidden="true"></div>
+    </div>
+    <div class="sheet-scroll">
+      <div class="letter" id="letterBody">
+        <p>佳铭：</p>
+        <p>现在是深夜，离你的二十一岁还有几个小时。我不打算把这封信写长，也不想把它写成一段祝词。只是想在还亮着灯的房间里，跟你说几句清醒的话。</p>
+        <p>二十一岁没有太多仪式感。法律上你早就成年了，可真正开始“自己说了算”，大概是从这一年慢慢开始的：想做的事得自己去争取，不想做的事得学会拒绝，做错了也没有人替你收拾。这听起来有点重，但它的另一面是好东西——自由从来不是轻的，它是你终于愿意为自己负责之后，才一点点长出来的东西。</p>
+        <p>所以别急着把自己活成一个确定的人。二十几岁最容易被催着“定下来”：定方向、定性格、定一个能对人说清楚的自己。可你还在长，长得慢一点没关系。有些答案要过几年才会浮上来，到那时候你会知道，这几年没有白过。</p>
+        <p>也想让“被记得”这件事落在你身上。不是被很多人记得，而是有那么一两个人，在你什么都不说的时候，也知道你心里在起风。人这一辈子有一两个这样的人，就不算冷了。记得也是相互的，你也可以做那个先记得的人。</p>
+        <p>如果有一段时间很难，就允许它难。不用马上振作，不用假装没事，也不用向谁解释什么。深夜的好处是它不追问你，你可以先坐一会儿，等天自己亮起来。也不用急着变得更好，人不是一直往上走的，有时候站着不动，也是在长。</p>
+        <p>二十二岁之前，你还有整整一年。这一年可以浪费一点，可以走几段弯路，可以做几件没人理解、但你很想做的事。只要你还愿意在半夜醒着的时候，对自己诚实，这一年就不算虚度。</p>
+        <p>这一年你大概会听到很多“应该”：应该努力、应该清醒、应该早点有个计划。它们大多没有错，但没有哪一条比你更清楚，此刻的你到底需要什么。累了就歇，想跑就跑，别把别人的时间表，当成自己的。</p>
+        <p>写到这儿，窗外大概已经安静下来了。二十一的凌晨，其实和别的凌晨没什么不同——钟照样走，风照样吹，世界不会因为谁长大一岁就停下来。但我想让你知道，这一刻有人在惦记你，并且觉得你值得。这些话听起来有点像个唠叨的长辈，可我不想装作比你懂得多，我只是比你早一点看见这一天的钟声。</p>
+        <p>生日快乐，佳铭。愿你被生活善待，也愿你有本事善待自己。</p>
+        <p class="sig">2026.11.04 00:00</p>
+      </div>
+    </div>
+    <div class="sheet-foot">
+      <button class="btn" id="letterDone" type="button">看最后 →</button>
+    </div>
+  </div>
+</section>
 
 <!-- ============ 结尾 ============ -->
 <section class="layer finale" id="layerFinale" aria-label="结尾">
@@ -453,7 +483,7 @@ body.rainbow #stage{filter:hue-rotate(135deg) saturate(1.45) contrast(1.05);tran
 <noscript><p class="noscript">这个页面需要 JavaScript 才能打开。请换一个浏览器，或允许脚本运行。</p></noscript>
 <script>
 window.__GIFT_PUBLIC__ = true;
-﻿/* 二十一 · 给佳铭 —— 3D 粒子生日礼物
+/* 二十一 · 给佳铭 —— 3D 粒子生日礼物
    纯 Canvas 2D 手写透视投影，离线可用，无任何外部依赖。 */
 (function () {
   'use strict';
@@ -2324,6 +2354,7 @@ window.__GIFT_PUBLIC__ = true;
     bind('letterNext', 'click', function () { setStage('things'); });
     bind('thingsNext', 'click', function () { setStage('finale'); });
     bind('finaleBtn', 'click', function () { setStage('finale'); });
+    bind('letterDone', 'click', function () { setStage('finale'); });
     bind('replayBtn', 'click', function () {
       relightAll();
       setStage('intro');
